@@ -1,11 +1,14 @@
 pipeline {
     agent any
         stages {
-            stage ('Checkout') {
+            
+
+            stage('Build') { 
                 steps {
-                git branch:'master', url: 'https://github.com/OWASP/Vulnerable-Web-Application.git'
+                    sh 'npm install' 
+                }
             }
-            }
+
             stage('Code Quality Check via Sonarqube') {
                 steps {
                     script {
